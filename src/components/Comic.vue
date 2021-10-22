@@ -15,24 +15,15 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
-
-import comicApi from "@/api/comicApi";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "Comic",
-  setup() {
-    const data = ref({});
-    const loading = ref(false);
-    const getData = () => {
-      loading.value = true;
-      comicApi
-        .get()
-        .then((res) => (data.value = res.data))
-        .finally(() => (loading.value = false));
-    };
-    getData();
-    return { data, loading };
-  },
+  props: {
+    data: {
+      type: Object,
+      required: false
+    }
+  }
 });
 </script>
