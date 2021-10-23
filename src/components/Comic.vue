@@ -5,25 +5,27 @@
     role="status"
     v-if="loading"
   >
-    <span class="visually-hidden">Cargando...</span>
   </div>
   <div v-else>
-    <h3>{{ data.safe_title }}</h3>
+    <h3>{{ dataComic.safe_title }}</h3>
     <br />
-    <img :src="data.img" alt="" />
+    <img :src="dataComic.img" alt="" />
   </div>
 </template>
 
 <script>
-import { defineComponent } from "vue";
 
-export default defineComponent({
+export default {
   name: "Comic",
   props: {
-    data: {
+    dataComic: {
       type: Object,
+      required: false
+    },
+    loading: {
+      type: Boolean,
       required: false
     }
   }
-});
+};
 </script>

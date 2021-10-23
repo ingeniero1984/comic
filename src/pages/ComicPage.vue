@@ -1,11 +1,11 @@
 <template>
     <Navbar />
-    <Comic :data="data" />
+    <Comic :dataComic="data" :loading="loading" class="mt-4"/>
     <Calification />
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { ref } from "vue";
 
 import Comic from "@/components/Comic";
 import Calification from "@/components/Calification";
@@ -13,7 +13,7 @@ import Navbar from "@/components/Navbar";
 
 import comicApi from "@/api/comicApi";
 
-export default defineComponent({
+export default{
   name: "ComicPage",
   components: {
     Comic,
@@ -33,5 +33,5 @@ export default defineComponent({
     getData();
     return { data, loading };
   },
-});
+};
 </script>

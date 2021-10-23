@@ -1,18 +1,13 @@
 <template>
-  <div class="container">
-        <nav class="navbar navbar-light" style="background-color: #72CE97;">
-        <a class="navbar-brand m-2" href="#">Comic App</a>
-  </nav>
-  <br>
+  <div class="container mt-4">
+    <nav class="navbar navbar-dark rounded-2 px-2" style="background-color: #198754">
+      <a class="navbar-brand fw-bold m-2" href="#">Comic App</a>
+    </nav>
   </div>
 </template>
 
 <script>
-import { defineComponent } from "vue";
-
-export default defineComponent({
-    name: "Navbar"
-});
+export default {
+  name: "Navbar",
+};
 </script>
-
-<style></style>
