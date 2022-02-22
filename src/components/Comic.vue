@@ -13,9 +13,13 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { useStore } from "vuex";
 
-export default {
+import { defineComponent } from "@vue/runtime-core"
+
+
+export default defineComponent({
   name: "Comic",
   props: {
     dataComic: {
@@ -26,6 +30,17 @@ export default {
       type: Boolean,
       required: false
     }
+  },
+  setup() {
+    const store = useStore(); 
+
+    const getComic = () => {
+      store.dispatch('getComics')
+    }
+
+    getComic()
+
+    return { getComic }
   }
-};
+});
 </script>

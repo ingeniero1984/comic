@@ -33,6 +33,9 @@
 <script>
 import { ref } from "vue";
 
+/**Utils */
+import { showSwalError, showSwalSuccess, showSwalLoading } from '@/utils/sweetalert2';
+
 export default {
   name: "Calification",
   setup() {
@@ -77,12 +80,16 @@ export default {
     };
 
     const message = () => {
+      showSwalLoading();
       const counter = stars.value.filter((item) => item.checked).length
       if (counter != 0) {
-        alert(`Gracias por su calificación de ${counter} estrellas.`);
-        document.location.reload();
+        showSwalSuccess(`Gracias por su calificación de ${counter} estrellas.`);
+        setTimeout(() => {
+          document.location.reload();
+        }, 2000);
+        
       } else {
-        alert(`Por favor califique un Comic`);
+        showSwalError(`Por favor califique un Comic`);
       }       
     };
 
